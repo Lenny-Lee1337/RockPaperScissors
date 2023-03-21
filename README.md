@@ -1,2 +1,2 @@
 # RockPaperScissors
-JS game
+Playh Rock Paper Scissors against a computer
