@@ -1,4 +1,6 @@
 
+let computerScore = 0;
+let playerScore = 0;
 
 
 /**
@@ -14,17 +16,33 @@ function getComputerChoice(){
 
 }
 
+/**
+ * play one round of the game, if player wins, add one to player score, if computer wins, add 1 to computer score.
+ 
+ */
+
 function playRound(playerSelection, computerSelection){
     computerSelection = getComputerChoice().toLowerCase();
     playerSelection = playerSelection.toLowerCase()
     if(computerSelection == playerSelection){
         return "Tie game"
     }
-    else{
-        return "No you suck"
-    }
-
+   
+       else if (
+        (computerSelection == "rock" && playerSelection == "scissors") ||
+        (computerSelection == "scissors" && playerSelection == "paper") ||
+        (computerSelection == "paper" && playerSelection == "rock")
+      ) {
+        computerScore = ++computerScore;
+        return `You lose! ${computerSelection} beats ${playerSelection}`
+         
+      } else{
+        playerScore = ++playerScore;
+        return `You win${playerSelection} beats ${computerSelection}`
+      }
 }
+    
+
 
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
